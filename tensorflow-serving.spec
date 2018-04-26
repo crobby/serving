@@ -23,7 +23,8 @@ BuildRequires: gcc-c++
 bazel build -c opt //tensorflow_serving/model_servers:tensorflow_model_server
 
 %install
-cp ./bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server %{_bindir}/tensorflow_model_server
+mkdir -p %{buildroot}%{_bindir}
+cp ./bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server %{buildroot}%{_bindir}
 rm -rf $RPM_BUILD_ROOT
 
 %files

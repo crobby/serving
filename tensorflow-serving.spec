@@ -1,6 +1,6 @@
 %define _disable_source_fetch 0
 %define _rpmfilename %%{ARCH}/tensorflow_model_server-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm
-Name: serving
+Name: tensorflow_model_server
 Version: 1.6.0
 Release: 1%{?dist}
 Summary: RPM for tensorflow-serving package
@@ -18,7 +18,7 @@ BuildRequires: gcc-c++
 
 %global debug_package %{nil}
 %prep
-%autosetup
+%setup -n serving-%{version}
 
 %build
 bazel build -c opt //tensorflow_serving/model_servers:tensorflow_model_server

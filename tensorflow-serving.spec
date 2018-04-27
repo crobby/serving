@@ -1,4 +1,5 @@
 %define _disable_source_fetch 0
+%define _rpmfilename %%{ARCH}/tensorflow_model_server-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm
 Name: serving
 Version: 1.6.0
 Release: 1%{?dist}

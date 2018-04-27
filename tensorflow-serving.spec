@@ -1,6 +1,5 @@
 %define _disable_source_fetch 0
-%define _rpmfilename %%{ARCH}/tensorflow_model_server-%%{VERSION}-%%{RELEASE}.%%{ARCH}.rpm
-Name: tensorflow_model_server
+Name: tensorflow-model-server
 Version: 1.6.0
 Release: 1%{?dist}
 Summary: RPM for tensorflow-serving package

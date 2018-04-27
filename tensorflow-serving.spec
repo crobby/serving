@@ -15,7 +15,7 @@ BuildRequires: gcc-c++
 
 %description
 
-
+%global debug_package %{nil}
 %prep
 %autosetup
 
@@ -25,13 +25,9 @@ bazel build -c opt //tensorflow_serving/model_servers:tensorflow_model_server
 %install
 mkdir -p %{buildroot}%{_bindir}
 cp ./bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server %{buildroot}%{_bindir}
-rm -rf $RPM_BUILD_ROOT
 
 %files
-%license add-license-file-here
-%doc add-docs-here
-
-
+%{_bindir}/tensorflow_model_server
 
 %changelog
 * Thu Apr 26 2018 Chad Roberts <croberts@redhat.com>

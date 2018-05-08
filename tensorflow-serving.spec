@@ -1,7 +1,7 @@
 %define _disable_source_fetch 0
 Name: tensorflow-model-server
 Version: 1.6.0
-Release: 1%{?dist}
+Release: 2%{?dist}
 Summary: RPM for tensorflow-serving package
 
 License: ASL 2.0
@@ -20,7 +20,7 @@ BuildRequires: gcc-c++
 %setup -n serving-%{version}
 
 %build
-bazel build -c opt //tensorflow_serving/model_servers:tensorflow_model_server
+bazel build -c opt --define with_s3_support=true //tensorflow_serving/model_servers:tensorflow_model_server
 
 %install
 mkdir -p %{buildroot}%{_bindir}
@@ -30,6 +30,8 @@ cp ./bazel-bin/tensorflow_serving/model_servers/tensorflow_model_server %{buildr
 %{_bindir}/tensorflow_model_server
 
 %changelog
+* Mon May 8 2018 Chad Roberts <croberts@redhat.com>
+Building with with_s3_support
 * Thu Apr 26 2018 Chad Roberts <croberts@redhat.com>
 Initial version
-- 
+-
